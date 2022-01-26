@@ -1,0 +1,24 @@
+﻿@model TeacherTools.ViewModels.Account.RegisterModel
+@{
+    Layout = "_Account";
+}
+
+<form class="Register" asp-action="Register" asp-controller="Account" asp-anti-forgery="true">
+    <label class="header fx cr">Регистрация пользователя</label>
+    <label class="nLogin fx rt">Логин</label>
+    <input class="tLogin" type="text" asp-for="Login" autocomplete="off"/>
+    <span class="vLogin fx lt" asp-validation-for="Login"></span>
+
+    <label class="nPassword fx rt">Пароль</label>
+    <input class="tPassword" type="password" asp-for="Password"/>
+    <span class="vPassword fx lt" asp-validation-for="Password"></span>
+
+    <label class="nConfPassword fx rt">Подтверждение</label>
+    <input class="tConfPassword" type="password" asp-for="ConfirmPassword"/>
+    <span class="vConfPassword fx lt" asp-validation-for="ConfirmPassword"></span>
+
+    <div class="validation fx cr" asp-validation-summary="ModelOnly"></div>
+
+    <input class="bRegister btn" type="submit" value="Регистрация"/>
+    <input class="bLogin btn" type="button" value="Авторизация" onclick="window.location.href = '@Url.Action("Login")';"/>
+</form>

@@ -1,0 +1,28 @@
+﻿/*
+    https://www.canva.com/design/DAD9RQSQ_q4/remix
+    #021C1E Сине-черный
+    #6FB98F Зелень
+    #2C7873 Дождь
+    #004445 Серо-синий
+
+    font-family: 'Roboto Slab', serif;
+*/
+
+.fx {
+    display: flex;
+}
+
+.cr {
+    align-items:center;
+    justify-content: center;
+}
+
+.lt {
+    align-items:center;
+    justify-content:left;
+}
+
+.rt {
+    align-items:center;
+    justify-content:right;
+}

@@ -1,0 +1,166 @@
+﻿content {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #2C7873;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2em;
+    font-family: 'Roboto Slab', serif;
+}
+
+form {
+    background-color: #021C1E;
+    width: 35vw;
+    height: 35vh;
+}
+
+.Login {
+    display: grid;
+    grid-template-areas: "header header header header"
+        "nLogin tLogin tLogin vLogin"
+        "nPassword tPassword tPassword vPassword"
+        "validation validation validation validation"
+        "bLogin bLogin bRegister bRegister";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    box-shadow: 4px 4px 2px 4px rgba(0, 68, 69, 0.28);
+}
+
+.Register {
+    display: grid;
+    grid-template-areas: "header header header header"
+        "nLogin tLogin tLogin vLogin"
+        "nPassword tPassword tPassword vPassword"
+        "nConfPassword tConfPassword tConfPassword vConfPassword"
+        "validation validation validation validation"
+        "bRegister bRegister bLogin bLogin";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    box-shadow: 4px 4px 2px 4px rgba(0, 68, 69, 0.28);
+}
+
+.header {
+    grid-area: header;
+    font-size: 1.4em;
+    text-align:center;
+}
+
+.nLogin {
+    grid-area: nLogin;
+    padding: 0 10px;
+}
+
+.tLogin {
+    grid-area: tLogin;
+    margin: 10px 5px;
+    font-size: 1.1em;
+    transition: all ease-in-out 0.2s;
+}
+
+    .tLogin:hover {
+        border: 1px solid #6FB98F;
+    }
+
+    .tLogin:focus {
+        outline: 0;
+        border: 1px solid #6FB98F;
+        box-shadow: 0px 0px 5px 7px rgba(111, 185, 143, 0.3);
+    }
+
+.vLogin {
+    grid-area: vLogin;
+    font-size: 0.8em;
+    padding: 5px;
+    color:red;
+}
+
+.nPassword {
+    grid-area: nPassword;
+    padding: 0 10px;
+}
+
+.tPassword {
+    grid-area: tPassword;
+    margin: 10px 5px;
+    font-size: 1.1em;
+    transition: all ease-in-out 0.2s;
+}
+
+    .tPassword:hover {
+        border: 1px solid #6FB98F;
+    }
+
+    .tPassword:focus {
+        outline: 0;
+        border: 1px solid #6FB98F;
+        box-shadow: 0px 0px 5px 7px rgba(111, 185, 143, 0.3);
+    }
+
+.vPassword {
+    grid-area: vPassword;
+    font-size: 0.8em;
+    padding: 5px;
+    color: red;
+}
+
+.nConfPassword {
+    grid-area: nConfPassword;
+    padding: 0 10px;
+}
+
+.tConfPassword {
+    grid-area: tConfPassword;
+    margin: 10px 5px;
+    font-size: 1.1em;
+    transition: all ease-in-out 0.2s;
+}
+
+    .tConfPassword:hover {
+        border: 1px solid #6FB98F;
+    }
+
+    .tConfPassword:focus {
+        outline: 0;
+        border: 1px solid #6FB98F;
+        box-shadow: 0px 0px 5px 7px rgba(111, 185, 143, 0.3);
+    }
+
+.vConfPassword {
+    grid-area: vConfPassword;
+    font-size: 0.8em;
+    padding: 5px;
+    color: red;
+}
+
+.validation {
+    grid-area: validation;
+    color: red;
+}
+
+.bLogin {
+    grid-area: bLogin;
+}
+
+.bRegister {
+    grid-area: bRegister;
+}
+
+.btn {
+    margin: 5px;
+    background-color: #6FB98F;
+    border: 0;
+    font-size: 1.1em;
+    color: white;
+    transition: all ease-in-out 0.2s;
+}
+
+    .btn:hover {
+        background-color: white;
+        color: #6FB98F;
+        font-size: 1.15em;
+    }
