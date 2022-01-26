@@ -4,19 +4,26 @@
     right: 0;
     top: 0;
     bottom: 0;
-    background-color: #2C7873;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #021C1E;
     color: white;
     font-size: 1.2em;
     font-family: 'Roboto Slab', serif;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.line {
+    width:20%;
+    height:100%;
+    background-color: #2C7873;
 }
 
 form {
-    background-color: #021C1E;
-    width: 35vw;
-    height: 35vh;
+    width:60%;
+    background-color: #2C7873;
+    border-radius: 10px;
 }
 
 .Login {
@@ -29,6 +36,8 @@ form {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
     box-shadow: 4px 4px 2px 4px rgba(0, 68, 69, 0.28);
+    width: 600px;
+    height: 300px;
 }
 
 .Register {
@@ -42,6 +51,8 @@ form {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(6, 1fr);
     box-shadow: 4px 4px 2px 4px rgba(0, 68, 69, 0.28);
+    width: 600px;
+    height: 350px;
 }
 
 .header {
@@ -57,7 +68,7 @@ form {
 
 .tLogin {
     grid-area: tLogin;
-    margin: 10px 5px;
+    margin:14px 5px;
     font-size: 1.1em;
     transition: all ease-in-out 0.2s;
 }
@@ -86,7 +97,7 @@ form {
 
 .tPassword {
     grid-area: tPassword;
-    margin: 10px 5px;
+    margin: 14px 5px;
     font-size: 1.1em;
     transition: all ease-in-out 0.2s;
 }
@@ -115,7 +126,7 @@ form {
 
 .tConfPassword {
     grid-area: tConfPassword;
-    margin: 10px 5px;
+    margin: 14px 5px;
     font-size: 1.1em;
     transition: all ease-in-out 0.2s;
 }
@@ -157,6 +168,7 @@ form {
     font-size: 1.1em;
     color: white;
     transition: all ease-in-out 0.2s;
+    border-radius: 10px;
 }
 
     .btn:hover {
