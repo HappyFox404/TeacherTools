@@ -19,6 +19,7 @@ namespace TeacherTools.Controllers
         }
         [HttpPost]
         public IActionResult Login(LoginModel model) {
+            ViewData["Title"] = "Авторизация";
             if (ModelState.IsValid)
             {
                 switch (DatabaseLayer.EqualsAccount(new Account() { Login = model.Login, Password = model.Password })) {
@@ -53,6 +54,7 @@ namespace TeacherTools.Controllers
         }
         [HttpPost]
         public IActionResult Register(RegisterModel model) {
+            ViewData["Title"] = "Регистрация";
             if (ModelState.IsValid) 
             {
                 if (DatabaseLayer.AddAccount(new Account() { Login = model.Login, Password = model.Password }))
@@ -62,6 +64,13 @@ namespace TeacherTools.Controllers
                 ModelState.AddModelError("", "Данное имя пользователя занято");
             }
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult Logout()
+        {
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login", "Account");
         }
     }
 }

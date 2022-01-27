@@ -10,6 +10,7 @@ namespace TeacherTools.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string Login { get; set; }
+        [Required]
         public string Password { get; set; }
     }
 }

@@ -1,0 +1,26 @@
+﻿.view {
+    width: auto;
+    display: grid;
+    grid-template-areas: "list info"
+        "list course";
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 10px;
+    height: 100vh;
+    animation: show 1s ease-in;
+}
+
+.list {
+    grid-area:list;
+    background-color:red;
+}
+
+.info {
+    grid-area:info;
+    background-color:blue;
+}
+
+.course{
+    grid-area:course;
+    background-color:silver;
+}

@@ -26,3 +26,25 @@
     align-items:center;
     justify-content:right;
 }
+
+.mBm {
+    margin-bottom:auto;
+}
+
+@keyframes fade-top {
+    0% {
+        transform:translateY(-100vh);
+    }
+    100% {
+        transform:translateY(0);
+    }
+}
+
+@keyframes show {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}

@@ -1,17 +1,14 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TeacherTools.Controllers
 {
-    public class HomeController : Controller
+    public class StudentController : Controller
     {
         [Authorize]
-        public ActionResult Index()
+        public IActionResult Viewing()
         {
-            ViewData["Title"] = "Главная страница";
             return View();
         }
-
     }
 }

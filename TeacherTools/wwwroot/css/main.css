@@ -1,0 +1,76 @@
+﻿body {
+    padding: 0;
+    margin: 0;
+    background-color: #021C1E;
+    color: white;
+    font-size: 1.2em;
+    font-family: 'Roboto Slab', serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+content {
+    margin-left:300px;
+    padding: 0 10px;
+    font-size:1.5em;
+    flex-grow: 1;
+}
+
+.logo {
+    margin-top: 45vh;
+    display: flex;
+    animation: logo_view 2s ease;
+    opacity: 0.8;
+    text-align:center;
+}
+
+@keyframes logo_view {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:0.8;
+    }
+}
+
+.menu {
+    position: fixed;
+    width: 300px;
+    height: 100vh;
+    background-color: #2C7873;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid white;
+    animation: menu_in 1s ease;
+}
+
+@keyframes menu_in {
+    0% {
+        transform:translateX(-300px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+    .menu a {
+        text-decoration:none;
+        color: white;
+    }
+
+.menu a div {
+    height:50px;
+    display:flex;
+    transition: all ease 0.2s;
+    text-align:center;
+}
+
+    .menu a div:hover {
+        background-color: #004445;
+        border-right: 10px solid white;
+    }
+
+    .menu a div:active {
+        background-color: #021C1E;
+    }
