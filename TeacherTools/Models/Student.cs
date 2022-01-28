@@ -1,12 +1,17 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TeacherTools.Models
 {
+    [Index(new string[] { "FirstName", "LastName", "Birthday" }, IsUnique = true, Name = "uStudent")]
     public class Student
     {
+        [Column(TypeName = "varchar(20)")]
         public string FirstName { get; set; }
+        [Column(TypeName = "varchar(20)")]
         public string LastName { get; set; }
         [NotMapped]
         public string FullName
@@ -28,5 +33,6 @@ namespace TeacherTools.Models
                 return age;
             }
         }
+        public List<Group> Groups { get; set; } = new List<Group>();
     }
 }

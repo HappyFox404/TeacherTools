@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -9,8 +10,11 @@ namespace TeacherTools.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Column(TypeName = "varchar(20)")]
         public string Login { get; set; }
         [Required]
         public string Password { get; set; }
+        public List<Student> Students { get; set; } = new List<Student>();
+        public List<Group> Groups { get; set; } = new List<Group>();
     }
 }
