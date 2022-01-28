@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Security.Claims;
 using TeacherTools.Data;
+using TeacherTools.Function;
 using TeacherTools.Models;
 using TeacherTools.ViewModels.Account;
 
@@ -22,7 +23,7 @@ namespace TeacherTools.Controllers
             ViewData["Title"] = "Авторизация";
             if (ModelState.IsValid)
             {
-                switch (DatabaseLayer.EqualsAccount(new Account() { Login = model.Login, Password = model.Password })) {
+                switch (DatabaseLayer.EqualsAccount(new Account() { Login = model.Login, Password = Utils.GetMD5(model.Password) })) {
                     case DatabaseLayer.AccountFindStatus.Found: {
                             var claims = new List<Claim>
                             {
@@ -57,7 +58,7 @@ namespace TeacherTools.Controllers
             ViewData["Title"] = "Регистрация";
             if (ModelState.IsValid) 
             {
-                if (DatabaseLayer.AddAccount(new Account() { Login = model.Login, Password = model.Password }))
+                if (DatabaseLayer.AddAccount(new Account() { Login = model.Login, Password = Utils.GetMD5(model.Password) }))
                 {
                     return RedirectToActionPermanent("Login");
                 }

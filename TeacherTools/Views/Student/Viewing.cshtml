@@ -1,13 +1,36 @@
-﻿<div class="view">
+﻿@using TeacherTools.Function
+
+<div class="view">
     <div class="list">
-        <div class="header"><span class="label">Обучающиеся</span></div>
+        <div class="header"><span class="label right">Обучающиеся</span><button class="btn_char" id="addStudent">&#10010;</button></div>
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
+            <li>
+                <span>Фамилия Имя</span>
+                <span class="mRm gr">Дата рождения</span>
+                <button class="btn_char" id="delStudent">&#10006;</button>
+            </li>
         </ul>
     </div>
-    <div class="info">&nbsp;</div>
-    <div class="course">&nbsp;</div>
+    <div class="info"><div class="header"><span class="label right">Информация</span></div></div>
+    <div class="course"><div class="header"><span class="label right">Группы</span><button class="btn_char" id="addGroup">&#10010;</button><button class="btn_char" id="delGroup">&#10006;</button></div></div>
 </div>
+
+@{
+    await Html.RenderPartialAsync("_QuestionModal", new QuestionViewModel() { 
+        FormId="fDelStudent",
+        CloseId="cDelStudent", 
+        Method=@Url.Action("DeleteStudent","Student"),
+        Title="Вы уверены, что хотите удалить данного студента?"
+    });
+}
+
+@{
+    await Html.RenderPartialAsync("_QuestionModal", new QuestionViewModel() { 
+        FormId="fDelGroup",
+        CloseId="cDelGroup", 
+        Method=@Url.Action("DeleteGroup","Student"),
+        Title="Вы уверены, что хотите удалить данную группу?"
+    });
+}
+
+<script src="~/js/student.js"></script>

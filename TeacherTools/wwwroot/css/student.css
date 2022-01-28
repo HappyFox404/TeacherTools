@@ -34,7 +34,7 @@
     border-radius: 10px;
 }
 
-.list .header {
+.header {
     width: 100%;
     height: 60px;
     background-color: #004445;
@@ -45,8 +45,12 @@
     align-items:center;
 }
 
-    .list .header .label {
+    .header .label {
         margin: auto 10px;
+    }
+
+    .header .right {
+        margin-right: auto;
     }
 
 .list ul {
@@ -56,3 +60,17 @@
     width:100%;
     flex-grow:1;
 }
+
+    .list ul li {
+        margin: 5px 0;
+        width: 100%;
+        min-height: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid white;
+    }
+
+        .list ul li span {
+            margin: 0 10px;
+        }

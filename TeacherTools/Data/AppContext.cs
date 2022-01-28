@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TeacherTools.Function;
 using TeacherTools.Models;
 
 namespace TeacherTools.Data
@@ -25,9 +26,11 @@ namespace TeacherTools.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            var acc1 = new Account() { Login = "Admin", Password = Utils.GetMD5("admin") };
+            var acc2 = new Account() { Login = "User", Password = Utils.GetMD5("password123") };
             modelBuilder.Entity<Account>().HasData(new Account[] {
-                new Account() {Login = "Admin", Password = "admin"},
-                new Account() {Login = "User", Password = "password123"}
+                acc1,
+                acc2
             });
 
             modelBuilder.Entity<Student>().HasKey(st => new { st.FirstName, st.LastName, st.Birthday });

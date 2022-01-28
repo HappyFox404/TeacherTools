@@ -10,5 +10,18 @@ namespace TeacherTools.Controllers
         {
             return View();
         }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult DeleteStudent() {
+            return RedirectToActionPermanent("Viewing", "Student");
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult DeleteGroup()
+        {
+            return RedirectToActionPermanent("Viewing", "Student");
+        }
     }
 }

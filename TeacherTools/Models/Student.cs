@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TeacherTools.Models
 {
-    [Index(new string[] { "FirstName", "LastName", "Birthday" }, IsUnique = true, Name = "uStudent")]
+    [Index(new string[] { "FirstName", "LastName", "Birthday", "Account" }, IsUnique = true, Name = "uStudent")]
     public class Student
     {
         [Column(TypeName = "varchar(20)")]
@@ -34,5 +34,7 @@ namespace TeacherTools.Models
             }
         }
         public List<Group> Groups { get; set; } = new List<Group>();
+        [Required]
+        public Account Account { get; set; }
     }
 }

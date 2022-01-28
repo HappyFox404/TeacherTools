@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TeacherTools.Models
 {
-    [Index(new string[] { "Name", "DateCreate" }, IsUnique = true, Name = "uCourse")]
+    [Index(new string[] { "Name", "DateCreate", "Account" }, IsUnique = true, Name = "uCourse")]
     public class Group
     {
         [Column(TypeName = "varchar(30)")]
@@ -15,6 +15,6 @@ namespace TeacherTools.Models
         public string About { get; set; }
         public List<Student> Students { get; set; } = new List<Student>();
         [Required]
-        public List<Account> Accounts { get; set; } = new List<Account>();
+        public Account Account { get; set; }
     }
 }

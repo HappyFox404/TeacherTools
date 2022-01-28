@@ -1,0 +1,13 @@
+﻿@using TeacherTools.Function
+@model QuestionViewModel
+@{
+    Layout = null;
+}
+
+<div class="modal">
+    <form class="question" id="@Model.FormId" method="post" action="@Model.Method">
+        <label class="title fx cr">@Model.Title</label>
+        <input class="accept btn" type="submit" value="Принять"/>
+        <input class="decline btn" id="@Model.CloseId" type="button" value="Отмена"/>
+    </form>
+</div>

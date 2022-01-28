@@ -8,4 +8,9 @@
     <PackageReference Include="MySql.EntityFrameworkCore" Version="5.0.10" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ViewModels\Student\" />
+    <Folder Include="wwwroot\data\" />
+  </ItemGroup>
+
 </Project>
