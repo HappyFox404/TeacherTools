@@ -6,6 +6,7 @@
 
 <div class="modal">
     <form class="question" id="@Model.FormId" method="post" action="@Model.Method">
+        <input type="hidden" id="question-hidden" name="@Model.Hidden" value=""/>
         <label class="title fx cr">@Model.Title</label>
         <input class="accept btn" type="submit" value="Принять"/>
         <input class="decline btn" id="@Model.CloseId" type="button" value="Отмена"/>

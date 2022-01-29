@@ -13,7 +13,7 @@ namespace TeacherTools.Controllers
         [HttpGet]
         public IActionResult Viewing()
         {
-            return View();
+            return View(new DatabaseLayer().GetStudents());
         }
 
         [Authorize]
@@ -43,7 +43,8 @@ namespace TeacherTools.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult DeleteStudent() {
+        public IActionResult DeleteStudent(string ids) {
+            new DatabaseLayer().DelStudent(ids);
             return RedirectToActionPermanent("Viewing", "Student");
         }
 

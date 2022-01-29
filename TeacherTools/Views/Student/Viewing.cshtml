@@ -1,14 +1,20 @@
-﻿@using TeacherTools.Function
+﻿@using TeacherTools.Models
+@using TeacherTools.Function
+@model IEnumerable<Student>
 
 <div class="view_grid">
     <div class="list">
         <div class="header"><span class="label right">Обучающиеся</span><a href=@Url.Action("AddStudent","Student") class="btn_char" id="addStudent">&#10010;</a></div>
         <ul>
-            <li>
-                <span>Фамилия Имя</span>
-                <span class="mRm gr">Дата рождения</span>
-                <button class="btn_char" id="delStudent">&#10006;</button>
-            </li>
+            @foreach(var st in Model)
+            {
+                <li>
+                    <input type="hidden" id="student-id" value="@st.Id"/>
+                    <span>@st.FullName</span>
+                    <span class="mRm gr">@st.Birthday</span>
+                    <button class="btn_char delStudent">&#10006;</button>
+                </li>
+            }
         </ul>
     </div>
     <div class="info"><div class="header"><span class="label right">Информация</span></div></div>
@@ -18,6 +24,7 @@
 @{
     await Html.RenderPartialAsync("_QuestionModal", new QuestionViewModel() { 
         FormId="fDelStudent",
+        Hidden="ids",
         CloseId="cDelStudent", 
         Method=@Url.Action("DeleteStudent","Student"),
         Title="Вы уверены, что хотите удалить данного студента?"
@@ -27,6 +34,7 @@
 @{
     await Html.RenderPartialAsync("_QuestionModal", new QuestionViewModel() { 
         FormId="fDelGroup",
+        Hidden="ids",
         CloseId="cDelGroup", 
         Method=@Url.Action("DeleteGroup","Student"),
         Title="Вы уверены, что хотите удалить данную группу?"

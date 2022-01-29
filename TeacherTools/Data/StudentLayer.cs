@@ -20,9 +20,15 @@ namespace TeacherTools.Data
             }
         }
 
-        public bool DelStudent(Student st) {
+        public IEnumerable<Student> GetStudents() {
             using (AppContext app = new AppContext()) {
-                var check = app.Students.FirstOrDefault(s => s.FirstName == st.FirstName && s.LastName == st.LastName && s.Birthday == st.Birthday);
+                return app.Students.Include(s => s.Account).ToList();
+            }
+        }
+
+        public bool DelStudent(string ids) {
+            using (AppContext app = new AppContext()) {
+                var check = app.Students.FirstOrDefault(s => s.Id == ids);
                 if (check != null) {
                     app.Students.Remove(check);
                     app.SaveChanges();

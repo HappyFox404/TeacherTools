@@ -1,14 +1,25 @@
-﻿$(document).ready(function () {
+﻿let StudentId = "";
+
+$(document).ready(function () {
     console.log("Student JS load");
 
     /*Удаление студента*/
 
-    $('#delStudent').on('click', function () {
-        $('#fDelStudent').parent().toggleClass("mOn");
+    $('.delStudent').each(function () {
+        console.log("123")
+        $(this).on('click', function () {
+            StudentId = $(this).parent().find('#student-id').val();
+            $('#fDelStudent').parent().toggleClass("mOn");
+            $('#fDelStudent').find('#question-hidden').val(StudentId);
+            console.log(id);
+        });
     });
+
 
     $('#cDelStudent').on('click', function () {
         $('#fDelStudent').parent().toggleClass("mOn");
+        StudentId = "";
+        $('#fDelStudent').find('#question-hidden').val(StudentId);
     });
 
     /*Удаление группы*/
