@@ -8,11 +8,11 @@ namespace TeacherTools.Data
     {
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Student> Students { get; set; }
-        public DbSet<Group> Courses { get; set; }
+        //public DbSet<Group> Courses { get; set; }
         public DbSet<Score> Scores  { get; set; }
 
         public AppContext() {
-            Database.EnsureDeleted();
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
@@ -33,8 +33,9 @@ namespace TeacherTools.Data
                 acc2
             });
 
-            modelBuilder.Entity<Student>().HasKey(st => new { st.FirstName, st.LastName, st.Birthday });
-            modelBuilder.Entity<Group>().HasKey(c => new { c.Name, c.DateCreate });
+            modelBuilder.Entity<Student>().HasOne(st => st.Account).WithMany(acc => acc.Students).HasForeignKey(st => st.AccountId).HasPrincipalKey(acc => acc.Login);
+            modelBuilder.Entity<Student>().HasIndex(st => new { st.FirstName, st.LastName, st.Birthday, st.AccountId }).IsUnique();
+
             modelBuilder.Entity<Score>().HasNoKey();
         }
 

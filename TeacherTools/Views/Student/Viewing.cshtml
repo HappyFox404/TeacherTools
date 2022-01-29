@@ -1,8 +1,8 @@
 ﻿@using TeacherTools.Function
 
-<div class="view">
+<div class="view_grid">
     <div class="list">
-        <div class="header"><span class="label right">Обучающиеся</span><button class="btn_char" id="addStudent">&#10010;</button></div>
+        <div class="header"><span class="label right">Обучающиеся</span><a href=@Url.Action("AddStudent","Student") class="btn_char" id="addStudent">&#10010;</a></div>
         <ul>
             <li>
                 <span>Фамилия Имя</span>

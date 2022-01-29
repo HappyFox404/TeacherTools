@@ -11,7 +11,7 @@ namespace TeacherTools.Data
             Incorrect
         }
 
-        public static bool AddAccount(Account acc) {
+        public bool AddAccount(Account acc) {
             using (AppContext app = new AppContext()) {
                 if (app.Accounts.FirstOrDefault(a => a.Login == acc.Login) == null)
                 {
@@ -23,7 +23,7 @@ namespace TeacherTools.Data
             }
         }
 
-        public static AccountFindStatus EqualsAccount(Account acc) {
+        public AccountFindStatus EqualsAccount(Account acc) {
             using (AppContext app = new AppContext()) {
                 if (app.Accounts.FirstOrDefault(a => a.Login == acc.Login && a.Password == acc.Password) != null)
                     return AccountFindStatus.Found;

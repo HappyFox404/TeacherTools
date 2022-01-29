@@ -6,13 +6,24 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TeacherTools.Models
 {
-    [Index(new string[] { "FirstName", "LastName", "Birthday", "Account" }, IsUnique = true, Name = "uStudent")]
     public class Student
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public string Id { get; set; }
+        [Required]
         [Column(TypeName = "varchar(20)")]
         public string FirstName { get; set; }
+        [Required]
         [Column(TypeName = "varchar(20)")]
         public string LastName { get; set; }
+        [Required]
+        public DateTime Birthday { get; set; }
+        public string AccountId { get; set; }
+        [ForeignKey("AccountId")]
+        public Account Account { get; set; }
+
+
         [NotMapped]
         public string FullName
         {
@@ -21,7 +32,6 @@ namespace TeacherTools.Models
                 return LastName + " " + FirstName;
             }
         }
-        public DateTime Birthday { get; set; }
         [NotMapped]
         public int Age
         {
@@ -33,8 +43,6 @@ namespace TeacherTools.Models
                 return age;
             }
         }
-        public List<Group> Groups { get; set; } = new List<Group>();
-        [Required]
-        public Account Account { get; set; }
+
     }
 }

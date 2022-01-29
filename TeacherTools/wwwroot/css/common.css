@@ -64,6 +64,7 @@
     height: 40px;
     margin: 5px;
     color:white;
+    text-decoration:none;
 
     display:flex;
     justify-content: center;

@@ -1,0 +1,26 @@
+﻿@model TeacherTools.ViewModels.Student.StudentAddModel
+
+<div class="view fx cr">
+    <form class="add-student" asp-action="AddStudent" asp-controller="Student" asp-anti-forgery="true">
+        <label class="title fx cr">Добавление обучающегося</label>
+
+        <label class="nFirst fx rt">Имя</label>
+        <input class="tFirst" type="text" asp-for="FirstName" autocomplete="off"/>
+        <span class="vFirst fx lt" asp-validation-for="FirstName"></span>
+
+        <label class="nLast fx rt">Фамилия</label>
+        <input class="tLast" type="text" asp-for="LastName" autocomplete="off"/>
+        <span class="vLast fx lt" asp-validation-for="LastName"></span>
+
+        <label class="nBirthday fx rt">Дата рождения</label>
+        <input class="tBirthday" type="date" asp-for="Birthday" autocomplete="off"/>
+        <span class="vBirthday fx lt" asp-validation-for="Birthday"></span>
+
+        <div class="validation fx cr" asp-validation-summary="ModelOnly"></div>
+
+        <input class="bAccept btn" type="submit" value="Добавить"/>
+        <input class="bClose btn" type="button" value="Отмена" onclick="window.location.href ='@Url.Action("Viewing","Student")';"/>
+
+    </form>
+</div>
+</div>

@@ -1,4 +1,4 @@
-﻿.view {
+﻿.view_grid {
     width: auto;
     display: grid;
     grid-template-areas: "list info"
@@ -73,4 +73,104 @@
 
         .list ul li span {
             margin: 0 10px;
+        }
+
+.view {
+    width: auto;
+    height:100vh;
+    animation: show 1s ease-in;
+}
+
+    .view .add-student {
+        display: grid;
+        grid-template-areas: "title title title title"
+            "nFirst tFirst tFirst vFirst"
+            "nLast tLast tLast vLast"
+            "nBirthday tBirthday tBirthday vBirthday"
+            "validation validation validation validation"
+            "bAccept bAccept bClose bClose";
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        width: 700px;
+        height: 400px;
+        background-color: #2C7873;
+        border-radius: 10px;
+        font-size:0.7em;
+    }
+
+        .view .add-student .title {
+            grid-area: title;
+            font-size: 1.4em;
+        }
+        .view .add-student .nFirst {
+            grid-area: nFirst;
+        }
+        .view .add-student .tFirst {
+            grid-area: tFirst;
+            margin: 14px 5px;
+            font-size: 1.1em;
+            transition: all ease-in-out 0.2s;
+        }
+            .view .add-student .tFirst:hover {
+                border: 1px solid #6FB98F;
+            }
+
+            .view .add-student .tFirst:focus {
+                outline: 0;
+                border: 1px solid #6FB98F;
+                box-shadow: 0px 0px 5px 7px rgba(111, 185, 143, 0.3);
+            }
+        .view .add-student .vFirst {
+            grid-area: vFirst;
+        }
+        .view .add-student .nLast {
+            grid-area: nLast;
+        }
+        .view .add-student .tLast {
+            grid-area: tLast;
+            margin: 14px 5px;
+            font-size: 1.1em;
+            transition: all ease-in-out 0.2s;
+        }
+            .view .add-student .tLast:hover {
+                border: 1px solid #6FB98F;
+            }
+
+            .view .add-student .tLast:focus {
+                outline: 0;
+                border: 1px solid #6FB98F;
+                box-shadow: 0px 0px 5px 7px rgba(111, 185, 143, 0.3);
+            }
+        .view .add-student .vLast {
+            grid-area: vLast;
+        }
+        .view .add-student .nBirthday {
+            grid-area: nBirthday;
+        }
+        .view .add-student .tBirthday {
+            grid-area: tBirthday;
+            margin: 12px 5px;
+            font-size: 1.1em;
+            transition: all ease-in-out 0.2s;
+        }
+            .view .add-student .tBirthday:hover {
+                border: 1px solid #6FB98F;
+            }
+
+            .view .add-student .tBirthday:focus {
+                outline: 0;
+                border: 1px solid #6FB98F;
+                box-shadow: 0px 0px 5px 7px rgba(111, 185, 143, 0.3);
+            }
+        .view .add-student .vBirthday {
+            grid-area: vBirthday;
+        }
+        .view .add-student .validation {
+            grid-area: validation;
+        }
+        .view .add-student .bAccept {
+            grid-area: bAccept;
+        }
+        .view .add-student .bClose {
+            grid-area: bClose;
         }

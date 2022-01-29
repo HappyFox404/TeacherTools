@@ -11,8 +11,6 @@ namespace TeacherTools.Models
         [Required]
         public Student Student { get; set; }
         [Required]
-        public Group Group { get; set; }
-        [Required]
         public int ScoreNumber { get; set; }
     }
 }

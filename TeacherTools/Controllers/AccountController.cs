@@ -23,7 +23,7 @@ namespace TeacherTools.Controllers
             ViewData["Title"] = "Авторизация";
             if (ModelState.IsValid)
             {
-                switch (DatabaseLayer.EqualsAccount(new Account() { Login = model.Login, Password = Utils.GetMD5(model.Password) })) {
+                switch (new DatabaseLayer().EqualsAccount(new Account() { Login = model.Login, Password = Utils.GetMD5(model.Password) })) {
                     case DatabaseLayer.AccountFindStatus.Found: {
                             var claims = new List<Claim>
                             {
@@ -58,7 +58,7 @@ namespace TeacherTools.Controllers
             ViewData["Title"] = "Регистрация";
             if (ModelState.IsValid) 
             {
-                if (DatabaseLayer.AddAccount(new Account() { Login = model.Login, Password = Utils.GetMD5(model.Password) }))
+                if (new DatabaseLayer().AddAccount(new Account() { Login = model.Login, Password = Utils.GetMD5(model.Password) }))
                 {
                     return RedirectToActionPermanent("Login");
                 }

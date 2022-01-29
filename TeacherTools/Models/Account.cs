@@ -14,7 +14,6 @@ namespace TeacherTools.Models
         public string Login { get; set; }
         [Required]
         public string Password { get; set; }
-        public List<Student> Students { get; set; } = new List<Student>();
-        public List<Group> Groups { get; set; } = new List<Group>();
+        public List<Student> Students { get; set; } = null!;
     }
 }
