@@ -1,24 +1,37 @@
 ﻿@using TeacherTools.Models
 @using TeacherTools.Function
-@model IEnumerable<Student>
+@model ViewingModel
 
 <div class="view_grid">
     <div class="list">
         <div class="header"><span class="label right">Обучающиеся</span><a href=@Url.Action("AddStudent","Student") class="btn_char" id="addStudent">&#10010;</a></div>
-        <ul>
-            @foreach(var st in Model)
+        <ul class="viewing-list">
+            @foreach(var st in Model.Students)
             {
                 <li>
                     <input type="hidden" id="student-id" value="@st.Id"/>
                     <span>@st.FullName</span>
-                    <span class="mRm gr">@st.Birthday</span>
+                    <span class="mRm gr">@st.Birthday.Date</span>
                     <button class="btn_char delStudent">&#10006;</button>
                 </li>
             }
         </ul>
     </div>
     <div class="info"><div class="header"><span class="label right">Информация</span></div></div>
-    <div class="course"><div class="header"><span class="label right">Группы</span><button class="btn_char" id="addGroup">&#10010;</button><button class="btn_char" id="delGroup">&#10006;</button></div></div>
+    <div class="course">
+        <div class="header"><span class="label right">Группы</span><a href=@Url.Action("AddGroup","Student") class="btn_char" id="addStudent">&#10010;</a></div>
+        <ul class="viewing-list">
+            @foreach(var gr in Model.Groups)
+            {
+                <li>
+                    <input type="hidden" id="group-id" value="@gr.Id"/>
+                    <span>@gr.Name</span>
+                    <span class="mRm gr">@gr.DateCreate.Date</span>
+                    <button class="btn_char delGroup" id="delGroup">&#10006;</button>
+                </li>
+            }
+        </ul>
+    </div>
 </div>
 
 @{

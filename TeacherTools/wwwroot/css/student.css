@@ -53,7 +53,7 @@
         margin-right: auto;
     }
 
-.list ul {
+.viewing-list {
     padding: 0;
     margin: 0;
     list-style-type:none;
@@ -61,7 +61,7 @@
     flex-grow:1;
 }
 
-    .list ul li {
+    .viewing-list li {
         margin: 5px 0;
         width: 100%;
         min-height: 50px;
@@ -71,7 +71,7 @@
         border-bottom: 2px solid white;
     }
 
-        .list ul li span {
+        .viewing-list li span {
             margin: 0 10px;
         }
 
@@ -174,3 +174,114 @@
         .view .add-student .bClose {
             grid-area: bClose;
         }
+
+    .view .add-group {
+        display: grid;
+        grid-template-areas: "title title title title"
+            "nName tName tName vName"
+            "nDate tDate tDate vDate"
+            "nAbout tAbout tAbout vAbout"
+            ". tAbout tAbout vAbout"
+            "validation validation validation validation"
+            "bAccept bAccept bClose bClose";
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(7, 1fr);
+        width: 700px;
+        height: 450px;
+        background-color: #2C7873;
+        border-radius: 10px;
+        font-size: 0.7em;
+    }
+
+        .view .add-group .title {
+            grid-area: title;
+            font-size: 1.4em;
+        }
+
+        .view .add-group .nName {
+            grid-area: nName;
+        }
+
+        .view .add-group .tName {
+            grid-area: tName;
+            margin: 14px 5px;
+            font-size: 1.1em;
+            transition: all ease-in-out 0.2s;
+        }
+
+            .view .add-group .tName:hover {
+                border: 1px solid #6FB98F;
+            }
+
+            .view .add-group .tName:focus {
+                outline: 0;
+                border: 1px solid #6FB98F;
+                box-shadow: 0px 0px 5px 7px rgba(111, 185, 143, 0.3);
+            }
+
+    .view .add-group .vName {
+        grid-area: vName;
+    }
+
+        .view .add-group .nDate {
+            grid-area: nDate;
+        }
+
+        .view .add-group .tDate {
+            grid-area: tDate;
+            margin: 12px 5px;
+            font-size: 1.1em;
+            transition: all ease-in-out 0.2s;
+        }
+
+            .view .add-group .tDate:hover {
+                border: 1px solid #6FB98F;
+            }
+
+            .view .add-group .tDate:focus {
+                outline: 0;
+                border: 1px solid #6FB98F;
+                box-shadow: 0px 0px 5px 7px rgba(111, 185, 143, 0.3);
+            }
+
+        .view .add-group .vDate {
+            grid-area: vDate;
+        }
+
+        .view .add-group .nAbout {
+            grid-area: nAbout;
+        }
+
+        .view .add-group .tAbout {
+            grid-area: tAbout;
+            resize:none;
+            margin: 14px 5px;
+            font-size: 1.1em;
+            transition: all ease-in-out 0.2s;
+        }
+
+        .view .add-group .tAbout:hover {
+            border: 1px solid #6FB98F;
+        }
+
+        .view .add-group .tAbout:focus {
+            outline: 0;
+            border: 1px solid #6FB98F;
+            box-shadow: 0px 0px 5px 7px rgba(111, 185, 143, 0.3);
+        }
+
+        .view .add-group .vAbout {
+            grid-area: vAbout;
+        }
+
+    .view .add-group .validation {
+        grid-area: validation;
+    }
+
+    .view .add-group .bAccept {
+        grid-area: bAccept;
+    }
+
+    .view .add-group .bClose {
+        grid-area: bClose;
+    }

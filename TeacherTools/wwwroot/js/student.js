@@ -1,4 +1,5 @@
 ﻿let StudentId = "";
+let GroupId = "";
 
 $(document).ready(function () {
     console.log("Student JS load");
@@ -6,7 +7,6 @@ $(document).ready(function () {
     /*Удаление студента*/
 
     $('.delStudent').each(function () {
-        console.log("123")
         $(this).on('click', function () {
             StudentId = $(this).parent().find('#student-id').val();
             $('#fDelStudent').parent().toggleClass("mOn");
@@ -24,11 +24,18 @@ $(document).ready(function () {
 
     /*Удаление группы*/
 
-    $('#delGroup').on('click', function () {
-        $('#fDelGroup').parent().toggleClass("mOn");
+    $('.delGroup').each(function () {
+        $(this).on('click', function () {
+            GroupId = $(this).parent().find('#group-id').val();
+            $('#fDelGroup').parent().toggleClass("mOn");
+            $('#fDelGroup').find('#question-hidden').val(GroupId);
+            console.log(id);
+        });
     });
 
     $('#cDelGroup').on('click', function () {
         $('#fDelGroup').parent().toggleClass("mOn");
+        GroupId = "";
+        $('#fDelGroup').find('#question-hidden').val(GroupId);
     });
 });

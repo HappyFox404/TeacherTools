@@ -1,0 +1,25 @@
+﻿@model TeacherTools.ViewModels.Student.GroupAddModel
+
+<div class="view fx cr">
+    <form class="add-group" asp-action="AddGroup" asp-controller="Student" asp-anti-forgery="true">
+        <label class="title fx cr">Добавление группы</label>
+
+        <label class="nName fx rt">Название</label>
+        <input class="tName" type="text" asp-for="Name" autocomplete="off"/>
+        <span class="vName fx lt" asp-validation-for="Name"></span>
+
+        <label class="nDate fx rt">Формирование</label>
+        <input class="tDate" type="date" asp-for="DateCreate" autocomplete="off"/>
+        <span class="vDate fx lt" asp-validation-for="DateCreate"></span>
+
+        <label class="nAbout fx rt">Описание</label>
+        <textarea class="tAbout" type="text" asp-for="About" autocomplete="off"></textarea>
+        <span class="vAbout fx lt" asp-validation-for="About"></span>
+
+        <div class="validation fx cr" asp-validation-summary="ModelOnly"></div>
+
+        <input class="bAccept btn" type="submit" value="Добавить"/>
+        <input class="bClose btn" type="button" value="Отмена" onclick="window.location.href ='@Url.Action("Viewing","Student")';"/>
+
+    </form>
+</div>

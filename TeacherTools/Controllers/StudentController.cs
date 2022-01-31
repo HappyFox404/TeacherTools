@@ -13,7 +13,7 @@ namespace TeacherTools.Controllers
         [HttpGet]
         public IActionResult Viewing()
         {
-            return View(new DatabaseLayer().GetStudents());
+            return View(new DatabaseLayer().GetStudents(User.Identity.Name));
         }
 
         [Authorize]
@@ -50,9 +50,36 @@ namespace TeacherTools.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult DeleteGroup()
+        public IActionResult DeleteGroup(string ids)
         {
+            new DatabaseLayer().DelGroup(ids);
             return RedirectToActionPermanent("Viewing", "Student");
+        }
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult AddGroup() {
+            ViewData["Title"] = "Добавление группы";
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult AddGroup(GroupAddModel model)
+        {
+            ViewData["Title"] = "Добавление группы";
+            if (ModelState.IsValid)
+            {
+                if (new DatabaseLayer().AddGroup(model.Name,model.DateCreate,User.Identity.Name, model.About))
+                {
+                    return RedirectToActionPermanent("Viewing", "Student");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "У Вас в списке уже есть такая группа");
+                }
+            }
+            return View(model);
         }
     }
 }
